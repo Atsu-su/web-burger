@@ -1,0 +1,732 @@
+/* ------------------------------ */
+/* カスタムプロパティ */
+/* ------------------------------ */
+
+/* カラー */
+/* copyとtitleだけ異なる*/
+:root {
+    --color-bg-base: #FCF9F2;
+    --color-bg-white: #fff;
+    --color-font-base: #333333;
+    --color-font-black-green: #11361F;
+    --color-font-white: #fff;
+}
+
+:root {
+    --font-weight-lighter: 100;
+    --font-weight-light: 200;
+    --font-weight-regular: 300;
+    --font-weight-medium: 400;
+    --font-weight-bold: 700;
+}
+
+:root {
+    --bg-base: #fff;
+    --bg-footer-company: #fcf9f2;
+    --bg-footer-company-copyright: #11361F
+}
+
+/* コンテナ幅 */
+:root {
+    --width-content: 90%;
+}
+
+/* フォント */
+:root {
+    --font-family-base: "Souce Han Sans JP", "源の角ゴシック", "Noto Sans JP", sans-serif;
+    --font-oswald: "Oswald", "Noto Sans JP", sans-serif;
+}
+
+/* ------------------------------ */
+/* リセットCSS */
+/* ------------------------------ */
+
+html {
+    color: #000;
+    background: var(--bg-base);
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before,
+q:after {
+    content: "";
+}
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select,
+button {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    font-size: 100%;
+    border-radius: 0;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: inherit;
+}
+
+input,
+textarea,
+select {
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    display: block;
+}
+
+button {
+    padding: 0;
+    cursor: pointer;
+}
+
+legend {
+    color: #000;
+}
+
+main {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+svg {
+    display: block;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ------------------------------ */
+/* 全体共通のスタイル */
+/* ------------------------------ */
+
+body {
+    font-size: 14px;
+    font-weight: var(--font-weight-light);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    color: var(--color-font-base);
+    font-family: var(--font-family-base);
+    background-color: var(--color-bg-base);
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* ------------------------------ */
+/* ちょっとした使い回すスタイル */
+/* ------------------------------ */
+
+.u-visually-hidden {
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    margin: -1px !important;
+}
+
+/* ------------------------------ */
+/* コンポーネント*/
+/* ------------------------------ */
+
+.c-font-oswald {
+    font-family: var(--font-oswald)
+}
+
+.c-list-title {
+    text-align: center;
+    color: var(--color-font-black-green);
+    font-size: 24px;
+    font-weight: var(--font-weight-light);
+    line-height: calc(43 / 24);
+}
+
+@media screen and (min-width: 768px) {
+    .c-list-title {
+        font-size: 36px;
+        line-height: calc(60 / 36);
+    }
+}
+
+.c-underline {
+    position: relative;
+}
+
+.c-underline:before {
+    content:'';
+    display: inline-block;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translate(-50%);
+    height: 2px;
+    background-color: var(--color-font-black-green);
+}
+
+.c-text {
+    line-height: calc(24 / 14);
+}
+
+.c-span-return {
+    display: block;
+}
+
+/* ------------------------------ */
+/*レイアウト*/
+/* ------------------------------ */
+
+.l-container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: var(--width-content)
+}
+
+@media screen and (min-width: 768px) {
+    .l-container {
+        width: calc((1080 / 1366) * 100%);
+    }
+}
+/* ------------------------------ */
+/*各セクション*/
+/* ------------------------------ */
+
+/*進め方*/
+/*
+・ざっくり位置を決める
+・フォントのサイズなどの細かい部分を調整する
+*/
+
+/* ------------------------------ */
+/*kv*/
+/* ------------------------------ */
+
+.kv {
+    background-image: url(./img/kv-img@2x.png);
+    background-size: cover;
+    width: 100%;
+    height: calc(100vw * 1.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+
+    .kv {
+        position: relative;
+        background-image: url(./img/pc/kv-img-pc.png);
+        background-image: url(./img/pc/kv-img-pc.png);
+        background-size: cover;
+        width: 100vw;
+        height: calc(100vw * (768 / 1366));
+    }
+
+    .kv-img {
+        width: 40%;
+        position: absolute;
+        top: 35px;
+        left: 40px;
+    }
+}
+
+/* ------------------------------ */
+/*concept*/
+/* ------------------------------ */
+
+.c-underline--concept:before {
+    width: 70px;
+}
+
+.concept {
+    padding-top: 64px;
+}
+
+.concept-container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: var(--width-content)
+}
+
+@media screen and (min-width: 768px) {
+    .concept-container {
+        width: calc(100% * (1147 / 1366));
+        margin-left: calc(100% * (143 / 1366));
+    }
+}
+
+.concept-text-small-copy {
+    color: var(--color-font-copy);
+    font-size: 28px;
+    letter-spacing: 0.06em;
+    line-height: calc(49 / 28);
+}
+
+@media screen and (min-width: 768px) {
+    .concept-text-small-copy {
+        font-size: 23px;
+        line-height: calc(60 / 36);
+    }
+}
+
+@media screen and (min-width: 967px) {
+    .concept-text-small-copy {
+        font-size: 28px;
+    }
+}
+
+@media screen and (min-width: 1254px) {
+    .concept-text-small-copy {
+        font-size: 36px;
+    }
+}
+
+.concept-text-big-copy {
+    color: var(--color-font-copy);
+    font-size: 64px;
+    font-weight: var(--font-weight-lighter);
+    line-height: calc(24 / 14);
+}
+
+@media screen and (min-width: 768px) {
+    .concept-text-big-copy {
+        font-size: 48px;
+        font-weight: var(--font-weight-lighter);
+        line-height: calc(154 / 84);
+    }
+
+    .concept-text-description {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (min-width: 967px) {
+    .concept-text-big-copy {
+        font-size: 64px;
+    }
+
+        .concept-text-description {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1254px) {
+    .concept-text-big-copy {
+        font-size: 84px;
+    }
+
+    .concept-text-description {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .concept {
+        padding-top: 96px;
+    }
+
+    .concept:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .concept-main {
+        display: flex;
+        flex-direction: row-reverse;
+        position: relative;
+    }
+
+    .concept-humburger-img {
+        width: 58%;
+        float: right;
+    }   
+    
+    .concept-text {
+        width: 45%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-40%);
+    }
+
+    .concept-text-description {
+        width: 80%;
+    }
+}
+
+/* ------------------------------ */
+/*menu*/
+/* ------------------------------ */
+
+/*
+スマホ向けのサイズはbackground-imgで
+PC向けはimgで処理する。htmlはPC向けで
+作成すればよい。
+*/
+
+.menu {
+    padding-top: 70px;
+}
+
+.menu h2 {
+    margin-bottom: 40px;
+}
+
+.menu-menus-item {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-menus-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 26px;
+    line-height: calc(66 / 26);
+    color: var(--color-font-base);
+}
+
+.c-underline--menu:before {
+    width: 50px;
+}
+
+.menu-menus-item .c-text {
+    padding-bottom: 38px;
+}
+
+@media screen and (min-width: 768px) {
+    .menu {
+        padding-top: 96px;
+    }
+
+    .menu h2 {
+        margin-bottom: 64px;
+    }
+
+    .menu-container {
+        width: calc((1080 / 1366) * 100%);
+        margin: 0 auto;
+    }
+
+    .menu-menus {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .menu-menus-detail {
+        width: 47%;
+    }
+
+    .menu-menus-item {
+        width: 100%;
+        margin: 0;
+        padding-top: 12px;
+    }
+
+    .menu-return {
+        display: block;
+    }
+
+    .menu-menus-item .c-text {
+        padding-bottom: 64px;
+    }
+}
+
+/* ------------------------------ */
+/*separate*/
+/* ------------------------------ */
+
+.separate {
+    padding-top: 32px;
+}
+
+.separate-pc {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .separate {
+        padding-top: 40px;
+    }
+
+    .separate-mobile {
+        display: none;
+    }
+
+    .separate-pc {
+        display: inline;
+    }
+}
+
+/* ------------------------------ */
+/*shop*/
+/* ------------------------------ */
+
+.c-underline--shop:before {
+    width: 50px;
+}
+
+.shop {
+    padding-top: 70px;
+    background-color: var(--color-bg-white);
+}
+
+.shop-img {
+    padding-top: 41px;
+}
+
+.shop-text {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.shop-name {
+    padding-top: 28px;
+    font-size: 20px;
+}
+
+.shop-address {
+    padding: 20px 0 78px;
+}
+
+@media screen and (min-width: 768px) {
+    .shop-img, .shop-name, .shop-address {
+        padding: 0;
+    }
+
+    .shop {
+        padding: 111px 0 96px;
+        background-color: var(--color-bg-white);
+    }
+
+    .shop-container {
+        width: calc((1080 / 1366) * 100%);
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        gap: 64px;
+        padding-top: 66px;
+    }
+
+    .shop-img {
+        width: 50%;
+    }
+
+    .shop-flex {
+        width: 37%;
+        display: flex;
+        align-items: center;
+    }
+
+    .shop-text {
+        width: 100%;
+        margin: 0;
+    }
+
+    .shop-text-description {
+        padding: 18px 0;
+    }
+}
+
+/* ------------------------------ */
+/*footer*/
+/* ------------------------------ */
+
+footer {
+    padding-top: 64px;
+}
+
+.footer-top {
+    background-color: var(--bg-footer-company);
+}
+
+.footer-top svg {
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.footer-company-info {
+    padding-top: 24px;
+    text-align: center;
+}
+
+.footer-bottom {
+    height: 65px;
+    background-color: var(--bg-footer-company-copyright);
+}
+
+.footer-social-media {
+    padding: 33px 0 65px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    line-height: calc(35 / 18);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-company-copyright {
+    color: var(--color-font-white);
+}
+
+@media screen and (min-width: 768px) {
+    footer, .footer-company-info, .footer-social-media {
+        padding: 0;
+    }
+
+    .footer-top {
+        padding: 96px 0;
+    }
+
+    .footer-top svg {
+        width: 55%;
+        margin: 0;
+    }
+
+    .footer-company-all {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-company {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .footer-company-info {
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .footer-social-media {
+        font-size: 18px;
+    }
+}
